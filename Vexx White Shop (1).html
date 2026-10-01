@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vexx White Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080d;--bg2:#0e1018;--card:#12141f;--line:#262a3b;--tx:#f4f5fa;--mu:#9aa0b4;--ac:#5b8cff;--ac2:#8b5cf6;--glow:rgba(91,140,255,.35);
+--fd:'Chakra Petch',system-ui,sans-serif;--fb:'Manrope',system-ui,sans-serif;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box}
+:root[data-theme="light"]{}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.65 var(--fb);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--fd);line-height:1.1;letter-spacing:.01em}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:14px}
+p{color:var(--mu);max-width:62ch}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:92px 0;position:relative}
+.sub{color:var(--mu);margin-bottom:44px}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(7,8,13,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 1.15rem var(--fd);display:flex;align-items:center;gap:10px}
+.logo i{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#fff,var(--ac) 60%,var(--ac2));box-shadow:0 0 18px var(--glow)}
+.links{display:flex;gap:26px;font-size:.92rem;color:var(--mu)}
+.links a:hover{color:#fff}
+@media(max-width:860px){.links{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:12px;font:600 .95rem var(--fd);border:1px solid var(--line);background:transparent;color:var(--tx);cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s,background .25s}
+.btn:hover{transform:translateY(-3px);border-color:var(--ac)}
+.btn.p{background:linear-gradient(135deg,var(--ac),var(--ac2));border-color:transparent;box-shadow:0 8px 28px var(--glow)}
+.btn.p:hover{box-shadow:0 12px 38px rgba(139,92,246,.55)}
+.btn.w{background:#fff;color:#07080d;border-color:#fff}
+.btn.w:hover{box-shadow:0 10px 30px rgba(255,255,255,.25)}
+.sm{padding:9px 16px;font-size:.85rem}
+
+/* hero */
+#hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;background:radial-gradient(60% 50% at 70% 20%,rgba(139,92,246,.22),transparent),radial-gradient(50% 50% at 20% 80%,rgba(91,140,255,.18),transparent)}
+#fx{position:absolute;inset:0;width:100%;height:100%}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.28;mask-image:radial-gradient(70% 60% at 50% 40%,#000,transparent)}
+.hero-in{position:relative;z-index:2}
+.tag{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:99px;font-size:.82rem;color:var(--mu);background:rgba(18,20,31,.7);margin-bottom:22px}
+.tag b{color:var(--ac)}
+h1{font-size:clamp(3rem,11vw,7.5rem);font-weight:700;background:linear-gradient(180deg,#fff 30%,#8d93ab);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 28px var(--glow));animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+h1 span{display:block;font-size:.42em;letter-spacing:.32em;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+.slogan{font:600 clamp(1.1rem,2.4vw,1.5rem) var(--fd);color:#fff;margin:26px 0 12px;animation:rise 1s .15s both}
+.hero-in p{animation:rise 1s .25s both}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;animation:rise 1s .35s both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--ac);box-shadow:0 18px 44px rgba(91,140,255,.16)}
+.art{height:168px;position:relative;display:grid;place-items:center;overflow:hidden}
+.art::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px)}
+.art em{position:relative;font:700 2.1rem var(--fd);font-style:normal;color:#fff;text-shadow:0 0 24px rgba(255,255,255,.6);letter-spacing:.06em}
+.art small{position:absolute;right:10px;bottom:8px;font-size:.7rem;color:rgba(255,255,255,.7)}
+.cb{padding:20px}
+.cb h3{font-size:1.15rem;margin-bottom:6px}
+.cb p{font-size:.92rem;margin-bottom:18px}
+.buy{display:flex;align-items:center;justify-content:space-between}
+.price{font:700 1.25rem var(--fd)}
+.price small{display:block;font:400 .7rem var(--fb);color:var(--mu)}
+
+/* discount band */
+.band{margin-top:40px;padding:34px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(120deg,rgba(91,140,255,.16),rgba(139,92,246,.16));display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.band h3{font-size:1.5rem;margin-bottom:6px}
+
+/* gamer */
+#gamer{background:var(--bg2)}
+.gm{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.gm .card{padding:26px}
+.ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;background:linear-gradient(135deg,rgba(91,140,255,.25),rgba(139,92,246,.25));border:1px solid var(--line)}
+.ico svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.1rem;margin-bottom:8px}
+.gm .card p,.bn .card p{font-size:.93rem}
+
+/* loja */
+.feature{border:1px solid var(--line);border-radius:26px;padding:clamp(26px,5vw,56px);background:radial-gradient(70% 90% at 100% 0,rgba(139,92,246,.25),transparent),var(--card);box-shadow:0 0 70px rgba(91,140,255,.1)}
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:34px 0;counter-reset:s}
+.steps li{counter-increment:s;padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(7,8,13,.5);color:var(--tx)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));font:700 .9rem var(--fd);margin-bottom:12px}
+
+/* admin */
+.adm{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.req{list-style:none;padding:0;display:grid;gap:10px}
+.req li{padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card);display:flex;gap:12px;align-items:center;transition:border-color .25s,transform .25s}
+.req li:hover{border-color:var(--ac2);transform:translateX(6px)}
+.req li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 12px var(--ac);flex:none}
+@media(max-width:820px){.adm{grid-template-columns:1fr}}
+
+/* social */
+#social{text-align:center;background:var(--bg2)}
+#social p{margin-inline:auto}
+.handle{font:700 clamp(1.6rem,5vw,2.6rem) var(--fd);margin:18px 0 26px;background:linear-gradient(90deg,#fff,var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.ft{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
+.fl{display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--mu);font-size:.93rem;margin-top:14px}
+.fl a:hover{color:#fff}
+.copy{margin-top:36px;color:var(--mu);font-size:.82rem}
+dialog{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:18px;padding:28px;max-width:min(520px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h3{margin-bottom:10px}dialog .btn{margin-top:18px}
+
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#07080d}}
+/* v2 */
+.hero-in>*{max-width:600px}
+.hero-art{position:absolute;right:max(4%,calc((100% - 1120px)/2));top:50%;transform:translateY(-45%);width:min(460px,38vw);z-index:1}
+.hb{border-radius:20px;overflow:hidden;border:1px solid rgba(157,184,255,.4);box-shadow:0 0 60px var(--glow);aspect-ratio:2/1;animation:fl 6s ease-in-out infinite}
+.hb svg,.art svg{display:block;width:100%;height:100%}
+.hv{position:absolute;left:-34px;bottom:-56px;width:36%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 0 40px rgba(139,92,246,.6);animation:fl 5s 1s ease-in-out infinite reverse}
+.hv svg{width:100%;height:100%}
+@keyframes fl{50%{transform:translateY(-12px)}}
+@media(max-width:980px){.hero-art{display:none}}
+#prod{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:860px}
+.art{height:210px;background:radial-gradient(circle at 50% 40%,#1b2050,#0a0c14)}
+.art::before{display:none}
+.art.av svg{width:170px;height:170px;border-radius:50%;border:3px solid rgba(255,255,255,.55);box-shadow:0 0 36px rgba(139,92,246,.55)}
+.art small{background:rgba(7,8,13,.6);padding:2px 8px;border-radius:99px}
+.price{font-size:1.9rem;background:linear-gradient(90deg,#fff,#9db8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price small{-webkit-text-fill-color:var(--mu)}
+.pay{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}
+.pay .steps{grid-template-columns:1fr;margin:0}
+.paybox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.tab{font:600 .9rem var(--fd);color:var(--tx);background:transparent;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;transition:.25s}
+.tab:hover,.tab.on{border-color:var(--ac);background:rgba(91,140,255,.15)}
+.tot{margin-bottom:18px}
+.tot b{color:#fff}
+.k{font-size:.8rem;color:var(--mu);margin:14px 0 6px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.row code{font:700 1.4rem var(--fd);padding:10px 16px;border-radius:10px;background:#07080d;border:1px dashed var(--ac);user-select:all}
+.v{font:600 1.1rem var(--fd)}
+#pix:not([hidden]){animation:rise .5s both}
+.notice{margin-top:22px;padding:22px 26px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(120deg,rgba(91,140,255,.14),rgba(139,92,246,.14));display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.notice span{max-width:56ch}
+@media(max-width:820px){.pay{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#hero"><i></i>Vexx White Shop</a>
+  <div class="links"><a href="#loja-designs">Produtos</a><a href="#gamer">Vexx Gamer</a><a href="#pagamento">Pagamento</a><a href="#admin">Administradores</a><a href="#social">Redes</a></div>
+  <a class="btn p sm" href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Entrar no Discord</a>
+</div></nav>
+
+<section id="hero">
+  <canvas id="fx" aria-hidden="true"></canvas><div class="grid"></div><div class="hero-art" id="ha"></div>
+  <div class="wrap hero-in">
+    <span class="tag"><b>●</b> Comunidade de design e games</span>
+    <h1>Vexx<span>WHITE SHOP</span></h1>
+    <div class="slogan">Sua criatividade, nossa especialidade.</div>
+    <p>Uma comunidade focada em design, jogos e crescimento. Encontre banners, fotos de perfil e outros produtos para deixar seu perfil ou sua comunidade ainda mais profissional.</p>
+    <div class="cta">
+      <a class="btn p" href="#loja-designs">Ver produtos</a>
+      <a class="btn w" href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Entrar na comunidade</a>
+      <a class="btn" href="#pagamento">Como pagar</a>
+    </div>
+  </div>
+</section>
+
+<section id="loja-designs"><div class="wrap">
+  <h2>Loja de designs</h2>
+  <p class="sub">Escolha seu banner ou sua foto de perfil e pague na hora com PIX.</p>
+  <div class="cards" id="prod"></div>
+  <div class="band">
+    <div><h3>Quanto mais você compra, maiores podem ser seus descontos!</h3>
+    <p>Clientes frequentes podem receber descontos e condições especiais em novos pedidos. Fale com a gente no Discord e combine o melhor pacote para você.</p></div>
+    <a class="btn p" href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Pedir meu desconto</a>
+  </div>
+</div></section>
+
+<section id="gamer"><div class="wrap">
+  <h2>Vexx Gamer</h2>
+  <p class="sub">A Vexx White Shop também é lugar de jogador: conecte-se, divulgue e evolua com a comunidade.</p>
+  <div class="gm">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v5M4.5 12.5h5M16 11h.01M18 14h.01"/></svg></div><h3>Comunidades de jogos</h3><p>Encontre pessoas que jogam o que você joga e participe de grupos ativos.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l14-6v14L3 13zM7 14l1.5 6H11l-1-5"/></svg></div><h3>Divulgação de projetos</h3><p>Mostre seu servidor, canal ou projeto para quem quer conhecer algo novo.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.5 7.1 18.2 8 12.7 4 8.8 9.5 8z"/></svg></div><h3>Designs para perfis e servidores</h3><p>Banners, ícones e identidades visuais no estilo gamer.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 9l1-5h14l1 5M4 9v11h16V9M4 9h16M9 20v-6h6v6"/></svg></div><h3>Visual para jogadores</h3><p>Banners e fotos de perfil com a cara do seu jogo favorito.</p></div>
+  </div>
+</div></section>
+
+<section id="pagamento"><div class="wrap">
+  <h2>Pagamento</h2>
+  <p class="sub">Simples e rápido: escolha o produto, pague via PIX e envie o comprovante.</p>
+  <div class="pay">
+    <div class="paybox">
+      <div class="tabs" id="tabs"></div>
+      <p id="hint">Escolha um produto acima para ver os dados do PIX.</p>
+      <div id="pix" hidden>
+        <div class="tot">Você escolheu: <b id="pn"></b> por <b id="pp"></b></div>
+        <div class="k">Chave PIX</div>
+        <div class="row"><code id="key">66992830160</code><button class="btn sm" id="cp" type="button">Copiar chave</button></div>
+        <div class="k">Nome do recebedor</div>
+        <div class="v">Pedro Henrique Candido Santan</div>
+      </div>
+    </div>
+    <ol class="steps">
+      <li>Escolha seu banner ou foto de perfil.</li>
+      <li>Pague o valor exato via PIX.</li>
+      <li>Envie o comprovante pelo suporte da comunidade no Discord.</li>
+    </ol>
+  </div>
+  <div class="notice"><span>Após o pagamento, envie o comprovante pelo canal de atendimento/suporte da comunidade.</span>
+  <a class="btn p" href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Enviar comprovante no Discord</a></div>
+</div></section>
+
+<section id="admin"><div class="wrap adm">
+  <div>
+    <h2>Estamos abertos para novos administradores!</h2>
+    <p>A Vexx White Shop está aberta para novos administradores que queiram ajudar no crescimento da comunidade, organizar projetos e contribuir com novas ideias.</p>
+    <p style="margin-top:12px">Quem somos procurando:</p>
+    <div style="margin-top:26px"><a class="btn p" href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Quero ser administrador</a></div>
+  </div>
+  <ul class="req">
+    <li>Ser ativo na comunidade</li><li>Ter responsabilidade</li><li>Saber trabalhar em equipe</li><li>Ter interesse em ajudar</li><li>Ter boas ideias</li>
+  </ul>
+</div></section>
+
+<section id="beneficios" style="background:var(--bg2)"><div class="wrap bn">
+  <h2>Benefícios da comunidade</h2>
+  <p class="sub">Tudo o que você encontra ao fazer parte da Vexx White Shop.</p>
+  <div class="gm" id="ben"></div>
+</div></section>
+
+<section id="social"><div class="wrap">
+  <h2>Siga o dono da Vexx White Shop</h2>
+  <p>Acompanhe novidades, bastidores e lançamentos direto no TikTok.</p>
+  <div class="handle">@pedrx.san0</div>
+  <a class="btn w" href="https://www.tiktok.com/@pedrx.san0" target="_blank" rel="noopener">Seguir no TikTok</a>
+</div></section>
+
+<footer id="suporte"><div class="wrap">
+  <div class="ft">
+    <div><a class="logo" href="#hero"><i></i>Vexx White Shop</a>
+      <div class="fl">
+        <a href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Discord</a>
+        <a href="https://www.tiktok.com/@pedrx.san0" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Suporte</a>
+        <a href="#loja-designs">Loja</a>
+        <a href="#" data-d="termos">Termos de uso</a>
+        <a href="#" data-d="priv">Política de privacidade</a>
+      </div></div>
+    <a class="btn p" href="https://discord.gg/BvTvdAQ4D" target="_blank" rel="noopener">Entrar no Discord</a>
+  </div>
+  <div class="copy">© 2026 Vexx White Shop. Todos os direitos reservados.</div>
+</div></footer>
+
+<dialog id="termos"><h3>Termos de uso</h3><p>Ao participar da comunidade e comprar na Vexx White Shop, você concorda em respeitar as regras do servidor, os prazos combinados e os direitos autorais das artes. Os termos completos ficam no Discord.</p><form method="dialog"><button class="btn p sm">Fechar</button></form></dialog>
+<dialog id="priv"><h3>Política de privacidade</h3><p>Usamos apenas as informações necessárias para atender seus pedidos e não as compartilhamos com terceiros sem sua autorização. Dúvidas? Fale com o suporte no Discord.</p><form method="dialog"><button class="btn p sm">Fechar</button></form></dialog>
+
+<script>
+const D="https://discord.gg/BvTvdAQ4D";
+const gid=(()=>{let n=0;return()=>'g'+(n++)})();
+function banner(){const g=gid();return `<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Exemplo de banner"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a0c1c"/><stop offset=".55" stop-color="#2a3cc7"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><pattern id="${g}p" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#fff" stroke-opacity=".08"/></pattern><radialGradient id="${g}r"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><rect width="400" height="200" fill="url(#${g})"/><rect width="400" height="200" fill="url(#${g}p)"/><circle cx="320" cy="60" r="90" fill="url(#${g}r)"/><path d="M230 200L330 0h70v200z" fill="#fff" fill-opacity=".07"/><path d="M290 200L380 20" stroke="#9db8ff" stroke-width="2" stroke-opacity=".7"/><text x="28" y="108" font-family="Chakra Petch,sans-serif" font-weight="700" font-size="64" fill="#fff">VEXX</text><text x="30" y="140" font-family="Chakra Petch,sans-serif" font-weight="600" font-size="17" letter-spacing="9" fill="#cfd8ff">WHITE SHOP</text><rect x="30" y="156" width="70" height="4" rx="2" fill="#fff"/></svg>`}
+function avatar(){const g=gid();return `<svg viewBox="0 0 200 200" role="img" aria-label="Exemplo de foto de perfil"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#0a0c1c"/></linearGradient><radialGradient id="${g}r"><stop offset="0" stop-color="#5b8cff" stop-opacity=".7"/><stop offset="1" stop-color="#5b8cff" stop-opacity="0"/></radialGradient></defs><rect width="200" height="200" fill="url(#${g})"/><circle cx="100" cy="90" r="80" fill="url(#${g}r)"/><path d="M30 200c0-44 30-66 70-66s70 22 70 66z" fill="#12141f" stroke="#9db8ff" stroke-opacity=".6"/><path d="M62 82c0-30 16-46 38-46s38 16 38 46v14c0 16-14 30-38 30s-38-14-38-30z" fill="#f4f5fa"/><path d="M68 84h64v18H68z" fill="#0a0c1c"/><path d="M72 93h56" stroke="#5b8cff" stroke-width="4" stroke-linecap="round"/><path d="M62 82c0-30 16-46 38-46s38 16 38 46" fill="none" stroke="#8b5cf6" stroke-width="4"/></svg>`}
+const P=[
+ {n:"Banner",ic:"🖼️",p:"R$ 8,50",d:"Banner personalizado para Discord, TikTok ou YouTube, com a identidade que você escolher.",a:banner,c:"art"},
+ {n:"Foto de perfil",ic:"👤",p:"R$ 6,90",d:"Avatar estilizado, nítido e pronto para qualquer rede social ou servidor.",a:avatar,c:"art av"}
+];
+document.getElementById('ha').innerHTML=`<div class="hb">${banner()}</div><div class="hv">${avatar()}</div>`;
+document.getElementById('prod').innerHTML=P.map((p,i)=>`<article class="card"><div class="${p.c}">${p.a()}<small>exemplo ilustrativo</small></div><div class="cb"><h3>${p.ic} ${p.n}</h3><p>${p.d}</p><div class="buy"><div class="price"><small>valor</small>${p.p}</div><button class="btn p" data-i="${i}" type="button">Comprar</button></div></div></article>`).join('');
+const tabs=document.getElementById('tabs');
+tabs.innerHTML=P.map((p,i)=>`<button class="tab" data-i="${i}" type="button">${p.ic} ${p.n} · ${p.p}</button>`).join('');
+function pick(i){const p=P[i];document.getElementById('pn').textContent=p.n;document.getElementById('pp').textContent=p.p;document.getElementById('pix').hidden=false;document.getElementById('hint').hidden=true;tabs.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('on',j==i));}
+document.querySelectorAll('[data-i]').forEach(b=>b.addEventListener('click',()=>{pick(+b.dataset.i);if(b.classList.contains('p'))document.getElementById('pagamento').scrollIntoView({behavior:'smooth'})}));
+const cp=document.getElementById('cp');cp.onclick=async()=>{try{await navigator.clipboard.writeText('66992830160');cp.textContent='Chave copiada!'}catch(e){const r=document.createRange();r.selectNode(document.getElementById('key'));getSelection().removeAllRanges();getSelection().addRange(r);cp.textContent='Agora copie'}setTimeout(()=>cp.textContent='Copiar chave',2200)};
+const B=[["Designs de qualidade","Artes cuidadosas, com acabamento profissional."],["Descontos para clientes frequentes","Quem compra mais paga menos nos próximos pedidos."],["Comunidade gamer","Gente ativa, projetos novos e muita troca."],["Pagamento simples via PIX","Pague em segundos e envie o comprovante pelo suporte."],["Oportunidades para administradores","Ajude a crescer a Vexx e participe das decisões."],["Suporte à comunidade","Atendimento rápido para dúvidas e pedidos."]];
+document.getElementById('ben').innerHTML=B.map((b,i)=>`<div class="card" style="padding:26px"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.500-7-4.500-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>${b[0]}</h3><p>${b[1]}</p></div>`).join('');
+document.querySelectorAll('[data-d]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.d).showModal()}));
+
+// partículas
+(()=>{const c=document.getElementById('fx'),x=c.getContext('2d');let W,H,pts=[];
+const rs=()=>{W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;pts=Array.from({length:Math.min(70,W/14)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.8+.4}))};
+rs();addEventListener('resize',rs);
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function f(){x.clearRect(0,0,W,H);
+for(const p of pts){if(!rm){p.x+=p.vx;p.y+=p.vy}if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(170,190,255,.8)';x.fill()}
+for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+if(d<120){x.strokeStyle=`rgba(110,140,255,${.22*(1-d/120)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+if(!rm)requestAnimationFrame(f)}
+f()})();
+</script>
+</body>
+</html>
